@@ -2,11 +2,11 @@
 
 ### I am using :
 
-- api : https://api.jikan.moe/
+- api : https://jikan.moe
 - react-router-dom
 - context api
 - custom hook
 
 ### Live demo
 
-- live :
+- live : https://adisetiawanx.github.io/AniManga/

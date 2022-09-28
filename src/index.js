@@ -4,15 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AniMangaContextProvider from "./contexts/animanga-context";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <HashRouter>
+    {/* <BrowserRouter> using hashrouter to support githubpages */}
     <AniMangaContextProvider>
       <App />
     </AniMangaContextProvider>
-  </BrowserRouter>
+    {/* </BrowserRouter> */}
+  </HashRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
