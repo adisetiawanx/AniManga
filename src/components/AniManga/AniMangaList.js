@@ -1,24 +1,28 @@
-const AniMangaList = ({ title, year, url, image, episodes, status, score }) => {
+import AniMangaItem from "./AniMangaItem";
+
+const AniMangaList = ({ AniMangaData }) => {
   return (
-    <li
-      style={{
-        width: "300px",
-        margin: "10px",
-        border: "1px solid black",
-        textAlign: "center",
-      }}
-    >
-      <p>
-        <strong>{title}</strong>
-      </p>
-      <p>{year}</p>
-      <p>
-        <img style={{ margin: "0 auto" }} src={image} alt={title} />
-      </p>
-      <p>Episode : {episodes}</p>
-      <p>Status : {status}</p>
-      <p>Score : {score}</p>
-    </li>
+    <>
+      <div className="bg-slate-600 rounded shadow py-1 mb-2">
+        <h3 className="font-bold text-center text-slate-50 text-xl">
+          Recent Anime
+        </h3>
+      </div>
+      <ul className="flex flex-wrap justify-between">
+        {AniMangaData.map((anime) => (
+          <AniMangaItem
+            key={anime.id}
+            title={anime.title}
+            url={anime.url}
+            episodes={anime.episodes}
+            image={anime.image}
+            score={anime.score}
+            status={anime.status}
+            year={anime.year}
+          />
+        ))}
+      </ul>
+    </>
   );
 };
 
