@@ -5,10 +5,10 @@ const useHttp = (requestFunction) => {
   const [error, setError] = useState(null);
 
   const sendRequest = useCallback(
-    async (resolveFunction, page) => {
+    async (resolveFunction, config) => {
       setIsLoading(true);
       try {
-        const data = await requestFunction(page);
+        const data = await requestFunction(config && config);
         resolveFunction(data);
       } catch (er) {
         setError(er.message);

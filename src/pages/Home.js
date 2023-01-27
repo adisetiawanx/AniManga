@@ -12,7 +12,7 @@ const Home = ({ AniMangaData, onSetData }) => {
   const page = Number(searchParams.get("page") || 1);
 
   useEffect(() => {
-    sendRequest(onSetData, page);
+    sendRequest(onSetData, { page });
   }, [sendRequest, onSetData, page]);
 
   return (
@@ -21,7 +21,7 @@ const Home = ({ AniMangaData, onSetData }) => {
       {/* {isLoading && <p>Loading!</p>}
       {error && <p>{error}</p>} */}
 
-      <div className="container mx-auto md:flex">
+      <div className="container md:mx-auto md:flex">
         <div className="md:flex-auto md:w-[80%]">
           <AniMangaList AniMangaData={AniMangaData} />
           <div style={{ textAlign: "center", margin: "15px" }}>
@@ -29,7 +29,7 @@ const Home = ({ AniMangaData, onSetData }) => {
           </div>
         </div>
         <aside className="md:flex-auto w-auto md:ml-3">
-          <div className="bg-slate-600 rounded shadow py-1">
+          <div className="bg-slate-600 rounded shadow py-1 mx-2">
             <h3 className="font-bold text-center text-slate-50 text-xl">
               Popular Anime
             </h3>
