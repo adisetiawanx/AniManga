@@ -32,7 +32,7 @@ const AniMangaContextProvider = (props) => {
         producer: anime.producers[0]?.name || "unknown",
         studio: anime.studios[0]?.name || "unknown",
         genre: anime.genres.map((genre) => genre.name + ", "),
-        trailer: anime.trailer?.embed_url,
+        trailer: anime.trailer?.youtube_id,
       };
     });
 
@@ -51,7 +51,6 @@ const AniMangaContextProvider = (props) => {
       score: animeData.score,
       synopsis: animeData.synopsis,
       type: animeData.type,
-
       duration: animeData.duration,
       season: animeData.season,
       producer: animeData.producers[0]?.name || "unknown",

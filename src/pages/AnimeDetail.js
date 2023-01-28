@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import Header from "../components/Layout/Header";
+import { useNavigate, useParams } from "react-router-dom";
 import ScoreRating from "../components/UI/Score";
 
 import { AniMangaContext } from "../contexts/animanga-context";
@@ -9,7 +8,7 @@ import { getAnimeDataById } from "../lib/api";
 
 const AnimeDetail = () => {
   const { animeId } = useParams();
-
+  const navigate = useNavigate();
   const { anime, animes, setAnimeDataById } = useContext(AniMangaContext);
   const { sendRequest } = useHttp(getAnimeDataById);
 
@@ -26,14 +25,13 @@ const AnimeDetail = () => {
 
   return (
     <>
-      <Header />
       <div className="container text-slate-900 mx-auto">
-        <Link
-          className="bg-slate-600 rounded text-white text-lg shadow px-3 py-1"
-          to={"/anime"}
+        <button
+          className="bg-slate-600 rounded text-white text-lg shadow px-3 py-1 ml-3"
+          onClick={() => navigate(-1)}
         >
           Back
-        </Link>
+        </button>
         <div className="md:flex md:items-start md:justify-center my-10">
           <div className="md:flex md:flex-wrap md:justify-center w-full md:max-w-[20%] md:mr-10 ">
             <div className="md:w-full  mb-3">
@@ -43,7 +41,7 @@ const AnimeDetail = () => {
                 alt={currAnime.title}
               ></img>
             </div>
-            <div className="bg-slate-500 text-white md:rounded-full px-3 py-1">
+            <div className="bg-slate-500 w-fit mx-auto text-white rounded-full mb-5 md:mb-0 px-3 py-1">
               <ScoreRating rating={currAnime.score} />
             </div>
           </div>
