@@ -8,7 +8,8 @@ import AnimeDetail from "./pages/AnimeDetail";
 import Home from "./pages/Home";
 
 function App() {
-  const { animes, mangas, setAnimeData } = useContext(AniMangaContext);
+  const { animes, mangas, setAnimeData, setTopAnimeData, topAnime } =
+    useContext(AniMangaContext);
 
   return (
     <ScrollToTop>
@@ -17,7 +18,14 @@ function App() {
         <Route path="/" element={<Navigate to="/anime" replace />} />
         <Route
           path="/anime"
-          element={<Home AniMangaData={animes} onSetData={setAnimeData} />}
+          element={
+            <Home
+              animeData={animes}
+              onSetAnimeData={setAnimeData}
+              topAnimeData={topAnime}
+              onSetTopAnimeData={setTopAnimeData}
+            />
+          }
         />
         <Route
           path="/manga"

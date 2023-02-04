@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
 import ScoreRating from "../UI/Score";
 
-const AniMangaItem = ({
-  id,
-  title,
-  year,
-  url,
-  image,
-  episodes,
-  status,
-  score,
-}) => {
+const AniMangaItem = ({ id, title, image, episodes, score }) => {
   return (
     <>
       <Link
@@ -28,7 +19,10 @@ const AniMangaItem = ({
           </div>
         </div>
         <div className="mx-3 my-2">
-          <ScoreRating rating={score} />
+          <ScoreRating
+            className="justify-center md:justify-start"
+            rating={score}
+          />
           <h4 className="font-bold text-xl text-center md:text-left">
             {title}
           </h4>

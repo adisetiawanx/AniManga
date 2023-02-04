@@ -9,12 +9,16 @@ import { getAnimeDataById } from "../lib/api";
 const AnimeDetail = () => {
   const { animeId } = useParams();
   const navigate = useNavigate();
-  const { anime, animes, setAnimeDataById } = useContext(AniMangaContext);
+  const { anime, animes, topAnime, setAnimeDataById } =
+    useContext(AniMangaContext);
   const { sendRequest } = useHttp(getAnimeDataById);
 
   //caching from animes that the data already on the contextstore
-  const currAnimeCache = animes.find((anime) => anime.id === Number(animeId));
-  const currAnime = currAnimeCache ? currAnimeCache : anime;
+  const currAnimeCache =
+    animes.find((anime) => anime.id === Number(animeId)) ||
+    topAnime.find((anime) => anime.id === Number(animeId));
+
+  let currAnime = currAnimeCache ? currAnimeCache : anime;
 
   useEffect(() => {
     //checking that anime already in cache, if its not then fetch from api by id

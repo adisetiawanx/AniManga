@@ -22,15 +22,13 @@ const ScoreRating = ({ rating, className }) => {
   );
 
   return (
-    <div className={className}>
-      <div className="flex items-center justify-center md:justify-start">
-        {rating >= 2 ? yellowStar : whiteStar}
-        {rating >= 4 ? yellowStar : whiteStar}
-        {rating >= 6 ? yellowStar : whiteStar}
-        {rating >= 8 ? yellowStar : whiteStar}
-        {rating >= 10 ? yellowStar : whiteStar}
-        <span>({rating})</span>
-      </div>
+    <div className={`flex items-center ${className}`}>
+      {rating >= 2 ? yellowStar : whiteStar}
+      {rating >= 4 ? yellowStar : whiteStar}
+      {rating >= 6 ? yellowStar : whiteStar}
+      {rating >= 8 ? yellowStar : whiteStar}
+      {rating >= 10 ? yellowStar : whiteStar}
+      <span>({rating})</span>
     </div>
   );
 };

@@ -6,6 +6,7 @@ export const AniMangaContext = createContext({
   mangas: [],
   setAnimeData: (animeData) => {},
   setAnimeDataById: (animeData) => {},
+  setTopAnimeData: (animeData) => {},
   setMangaData: (mangaData) => {},
 });
 
@@ -13,6 +14,7 @@ const AniMangaContextProvider = (props) => {
   const [animes, setAnimes] = useState([]);
   const [mangas, setMangas] = useState([]);
   const [anime, setAnime] = useState({});
+  const [topAnime, setTopAnime] = useState([]);
 
   const setAnimeData = useCallback((animeData) => {
     const animes = animeData.map((anime) => {
@@ -62,14 +64,41 @@ const AniMangaContextProvider = (props) => {
     setAnime(anime);
   }, []);
 
+  const setTopAnimeData = useCallback((animeData) => {
+    const animesTop = animeData.map((anime) => {
+      return {
+        id: anime.mal_id,
+        title: anime.titles[0]?.title,
+        year: anime.year || "unknown",
+        url: anime.url,
+        image: anime.images.webp.image_url,
+        episodes: anime.episodes != null ? anime.episodes : "?",
+        status: anime.status,
+        score: anime.score,
+        synopsis: anime.synopsis,
+        type: anime.type,
+        duration: anime.duration,
+        season: anime.season,
+        producer: anime.producers[0]?.name || "unknown",
+        studio: anime.studios[0]?.name || "unknown",
+        genre: anime.genres.map((genre) => genre.name + ", "),
+        trailer: anime.trailer?.youtube_id,
+      };
+    });
+
+    setTopAnime(animesTop);
+  }, []);
+
   const setMangaData = useCallback((mangaData) => {}, []);
 
   const AniMangaContextValue = {
     animes,
     mangas,
     anime,
+    topAnime,
     setAnimeData,
     setAnimeDataById,
+    setTopAnimeData,
     setMangaData,
   };
 

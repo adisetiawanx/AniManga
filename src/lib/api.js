@@ -23,3 +23,15 @@ export const getAnimeDataById = async ({ id }) => {
 
   return data;
 };
+
+export const getTopAnimeData = async () => {
+  const respone = await fetch(`${aniMangaUrl}/top/anime?limit=10`);
+
+  if (!respone.ok) {
+    throw new Error("Something went wrong!");
+  }
+
+  const { data } = await respone.json();
+
+  return data;
+};
