@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/AniManga/static/css/main.a9ba6e43.css",
-    "main.js": "/AniManga/static/js/main.97760fcc.js",
+    "main.css": "/AniManga/static/css/main.ee791bec.css",
+    "main.js": "/AniManga/static/js/main.c980e1a3.js",
     "index.html": "/AniManga/index.html",
-    "main.a9ba6e43.css.map": "/AniManga/static/css/main.a9ba6e43.css.map",
-    "main.97760fcc.js.map": "/AniManga/static/js/main.97760fcc.js.map"
+    "main.ee791bec.css.map": "/AniManga/static/css/main.ee791bec.css.map",
+    "main.c980e1a3.js.map": "/AniManga/static/js/main.c980e1a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.a9ba6e43.css",
-    "static/js/main.97760fcc.js"
+    "static/css/main.ee791bec.css",
+    "static/js/main.c980e1a3.js"
   ]
 }
