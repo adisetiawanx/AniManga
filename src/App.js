@@ -6,6 +6,8 @@ import ScrollToTop from "./components/UI/ScrollToTop";
 import { AniMangaContext } from "./contexts/animanga-context";
 import AnimeDetail from "./pages/AnimeDetail";
 import Home from "./pages/Home";
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Register";
 
 function App() {
   const { animes, mangas, setAnimeData, setTopAnimeData, topAnime } =
@@ -32,6 +34,8 @@ function App() {
           element={<Home AniMangaData={mangas} onSetData={setAnimeData} />}
         />
         <Route path="/anime/:animeId" element={<AnimeDetail />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
       <Footer />
     </ScrollToTop>
